@@ -1,13 +1,29 @@
-const DOLLAR_TO_YEN = 110; // 1 USD = 110 JPY
- const YEN_TO_POUND = 0.0069; // 1 JPY = 0.0069 GBP
- const fromEuroToDollar = (euroAmount) => {
-     const exchangeRate = 1.2;
-     return euroAmount * exchangeRate;
- };
- const fromDollarToYen = (dollarAmount) => {
-     return dollarAmount * DOLLAR_TO_YEN;
- };
- const fromYanToPound = (yenAmount) => {
-     return yenAmount * YEN_TO_POUND;
- };
- module.exports = { fromEuroToDollar, fromDollarToYen, fromYanToPound };
+// Esta es mi función que suma dos números
+const sum = (a,b) => {
+    return a + b
+}
+// Solo un registro en consola para nosotros
+console.log(sum(7,3))
+// One euro is:
+let oneEuroIs = {
+    "JPY": 156.5, // japan yen
+    "USD": 1.07, // us dollar
+    "GBP": 0.87, // british pound
+}
+const fromEuroToDollar = (eur) => {
+    return eur * oneEuroIs ["USD"]
+}
+    console. log (fromEuroToDollar (1))
+const fromDollarToYen = (dollars) => {
+    let valueInEuro = dollars/oneEuroIs["USD"];
+    return valueInEuro * oneEuroIs["JPY"]
+}
+    console.log (fromDollarToYen (1.07))
+const fromYenToPound = (yen) => {
+    let valueInYen = yen/oneEuroIs["JPY"];
+    return valueInYen * oneEuroIs["GBP"]
+}
+    console.log (fromYenToPound (156.5))
+// Exporta la función para usarla en otros archivos
+// (similar a la palabra clave “export” cuando se usa webpack)
+module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound};
